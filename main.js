@@ -30,11 +30,10 @@ writeToDOM(ageThing(1986,1956),"challenge-1");
 
 function tryMe(myNum){
   var resultArray = [];
+  var isPrime = true;
   for(var i = 2; i < myNum; i++){
     if(myNum % i === 0){
       var isPrime = false;
-    }else{
-      var isPrime = true;
     };
   };
   resultArray.push(isPrime);
@@ -59,3 +58,21 @@ function tryMe(myNum){
 
 writeToDOM(tryMe(12),"challenge-2");
 
+//CHALLENGE 3
+function uniqueSum(myArray){
+  
+  var sumItUp = 0;
+  for(var i = 0; i < myArray.length; i++){
+    for(var n = 1; n < myArray.length; n ++){
+      if(myArray[i] === myArray[n]){
+        //DO NOTHING
+      }else{
+        sumItUp += myArray[i];
+        myArray[i] = 0;
+      };
+    };
+  };
+  return sumItUp;
+};
+
+writeToDOM(uniqueSum([1,2,3]), "challenge-3");
