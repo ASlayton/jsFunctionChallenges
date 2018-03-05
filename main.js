@@ -60,12 +60,13 @@ writeToDOM(tryMe(12),"challenge-2");
 
 //CHALLENGE 3
 function uniqueSum(myArray){
-  
   var sumItUp = 0;
   for(var i = 0; i < myArray.length; i++){
     for(var n = 1; n < myArray.length; n ++){
       if(myArray[i] === myArray[n]){
-        //DO NOTHING
+        sumItUp += myArray[i];
+        myArray[i] = 0;
+        myArray[n] = 0;
       }else{
         sumItUp += myArray[i];
         myArray[i] = 0;
@@ -75,4 +76,22 @@ function uniqueSum(myArray){
   return sumItUp;
 };
 
-writeToDOM(uniqueSum([1,2,3]), "challenge-3");
+writeToDOM(uniqueSum([1,2,3,1]), "challenge-3");
+
+//CHALLENGE 4
+var challenge4 = (["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]) //["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+
+function removeGeese(myArray){
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  for(var i = 0; i < geese.length; i++){
+    for(var n = 0; n < myArray.length; n++){
+      if(myArray[n] === geese[i]){
+        myArray.splice(n,1);
+      };
+    };
+  };
+  return myArray;
+};
+
+writeToDOM(removeGeese(challenge4),"challenge-4");
+
