@@ -95,3 +95,22 @@ function removeGeese(myArray){
 
 writeToDOM(removeGeese(challenge4),"challenge-4");
 
+
+// CHALLENGE 5
+var challenge5 = "I love pie"; 
+
+function lastLetterSort(myWords){
+  var splitString = myWords.split(" ");
+  var arrayThing = [];
+  for(var i = 0; i < splitString.length; i++){
+    if(splitString[i].length > 1){
+      arrayThing.push(splitString[i].split(""));
+    }else{
+      arrayThing.push(splitString[i]);
+    };
+  };
+  
+  return arrayThing;
+};
+
+writeToDOM(lastLetterSort(challenge5),"challenge-5");
