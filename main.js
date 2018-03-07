@@ -1,4 +1,4 @@
-console.log("Why, hello there.");
+// console.log("Why, hello there.");
 function writeToDOM(domString,domId){
   var myBody = document.getElementById("writeHere");
   myBody.innerHTML += "<div id='" + domId + "'></div>";
@@ -95,3 +95,24 @@ function removeGeese(myArray){
 
 writeToDOM(removeGeese(challenge4),"challenge-4");
 
+
+// CHALLENGE 5
+var challenge5 = "bears live in the woods"; 
+
+function sortByLastLetter(mySentance){
+  var mySplitSentance = mySentance.split(" "); 
+  var splitSentanceReversed = reverseString(mySplitSentance);
+  splitSentanceReversed.sort();
+  var backTogether = reverseString(splitSentanceReversed);
+  return backTogether;
+};
+
+function reverseString(myStringArray){
+  var myNewStringArray = [];
+  for(var i = 0; i < myStringArray.length; i++){
+    myNewStringArray.push(myStringArray[i].split("").reverse().join("").toLowerCase());
+  };
+  return myNewStringArray;
+};
+
+writeToDOM(sortByLastLetter(challenge5),"challenge-5");
