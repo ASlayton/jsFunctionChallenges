@@ -1,4 +1,4 @@
-console.log("Why, hello there.");
+// console.log("Why, hello there.");
 function writeToDOM(domString,domId){
   var myBody = document.getElementById("writeHere");
   myBody.innerHTML += "<div id='" + domId + "'></div>";
@@ -97,20 +97,22 @@ writeToDOM(removeGeese(challenge4),"challenge-4");
 
 
 // CHALLENGE 5
-var challenge5 = "I love pie"; 
+var challenge5 = "bears live in the woods"; 
 
-function lastLetterSort(myWords){
-  var splitString = myWords.split(" ");
-  var arrayThing = [];
-  for(var i = 0; i < splitString.length; i++){
-    if(splitString[i].length > 1){
-      arrayThing.push(splitString[i].split(""));
-    }else{
-      arrayThing.push(splitString[i]);
-    };
-  };
-  
-  return arrayThing;
+function sortByLastLetter(mySentance){
+  var mySplitSentance = mySentance.split(" "); 
+  var splitSentanceReversed = reverseString(mySplitSentance);
+  splitSentanceReversed.sort();
+  var backTogether = reverseString(splitSentanceReversed);
+  return backTogether;
 };
 
-writeToDOM(lastLetterSort(challenge5),"challenge-5");
+function reverseString(myStringArray){
+  var myNewStringArray = [];
+  for(var i = 0; i < myStringArray.length; i++){
+    myNewStringArray.push(myStringArray[i].split("").reverse().join("").toLowerCase());
+  };
+  return myNewStringArray;
+};
+
+writeToDOM(sortByLastLetter(challenge5),"challenge-5");
